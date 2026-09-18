@@ -4,7 +4,7 @@ import { authOptions } from "@/lib/auth/authOptions"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Building2, Package, Layers, Users, ArrowRight } from "lucide-react"
 import Link from "next/link"
-import { Button, buttonVariants } from "@/components/ui/button"
+import { buttonVariants } from "@/components/ui/button"
 
 export default async function DashboardPage() {
   const session = await getServerSession(authOptions)
@@ -101,9 +101,13 @@ export default async function DashboardPage() {
             <p className="text-sm text-gray-600">
               Manage product pricing, stock levels, and real-time checkout sequences.
             </p>
-            <Button variant="outline" disabled className="w-fit">
-              <span>POS Core Module (Ready for Phase 4)</span>
-            </Button>
+            <Link 
+              href="/pos" 
+              className={`${buttonVariants({ variant: "default" })} flex items-center space-x-2 w-fit bg-amber-600 hover:bg-amber-700 text-white`}
+            >
+              <span>Launch POS Core Module</span>
+              <ArrowRight className="h-4 w-4 ml-2" />
+            </Link>
           </CardContent>
         </Card>
       </div>
