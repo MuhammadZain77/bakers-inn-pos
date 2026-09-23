@@ -1,36 +1,328 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🧁 Baker's Inn POS
 
-## Getting Started
+A modern full-stack Point of Sale (POS) and retail management system designed for bakery operations, with support for product management, sales processing, inventory, branch operations, reporting, and business workflows.
 
-First, run the development server:
+> Built with Next.js, TypeScript, PostgreSQL, Prisma and modern React technologies.
 
-```bash
+---
+
+## 📌 Overview
+
+Baker's Inn POS is a business-focused web application designed to digitize and streamline day-to-day bakery and retail operations.
+
+The system brings core operational workflows into a centralized platform, allowing authorized users to manage products, process sales, monitor inventory, work across branches, and access business information through a modern responsive interface.
+
+The project was developed with a focus on:
+
+- Maintainable application architecture
+- Type-safe development
+- Relational database design
+- Secure authentication
+- Business-oriented workflows
+- Responsive user experience
+- Reliable data management
+- Production-ready deployment
+
+---
+
+## 🎯 Problem Statement
+
+Traditional retail and bakery operations can become difficult to manage when sales, products, inventory and branch-level information are handled through disconnected systems or manual processes.
+
+Baker's Inn POS aims to provide a centralized digital solution where operational data can be managed through a single web application.
+
+The system is designed around the following business requirements:
+
+- Fast point-of-sale operations
+- Product and pricing management
+- Inventory monitoring
+- Branch-aware operations
+- Sales tracking
+- Business reporting
+- Controlled user access
+- Reliable database persistence
+
+---
+
+## ✨ Core Features
+
+### 🛒 Point of Sale
+
+- Product-based sales workflow
+- Cart management
+- Quantity handling
+- Pricing calculations
+- Order totals
+- Checkout workflow
+- Sales transaction processing
+
+### 📦 Product Management
+
+- Product catalog
+- Product identification
+- Product pricing
+- Product availability
+- Product-related inventory information
+
+### 📊 Inventory Management
+
+- Inventory tracking
+- Stock quantity management
+- Inventory updates
+- Product stock visibility
+- Inventory-related business workflows
+
+### 🏢 Branch Management
+
+Designed to support multi-branch retail operations and branch-aware workflows.
+
+Example deployment structure:
+
+- Main Branch
+- Sub-branches
+- Branch-specific operational data
+
+### 📈 Dashboard & Reporting
+
+The application provides business-oriented views for monitoring operational information such as:
+
+- Sales
+- Products
+- Inventory
+- Branches
+- Operational metrics
+
+### 🔐 Authentication & Access Control
+
+The application includes authentication infrastructure for controlling access to protected areas of the system.
+
+---
+
+## 🏗️ Architecture
+
+The project follows a modular Next.js application structure.
+
+┌─────────────────────────────┐
+│          User / POS         │
+│        Web Interface        │
+└──────────────┬──────────────┘
+               │
+               ▼
+┌─────────────────────────────┐
+│          Next.js            │
+│       App Router            │
+├─────────────────────────────┤
+│ Pages / Components          │
+│ Server Actions              │
+│ Application Logic           │
+│ Authentication              │
+└──────────────┬──────────────┘
+               │
+               ▼
+┌─────────────────────────────┐
+│           Prisma            │
+│       ORM / Data Layer      │
+└──────────────┬──────────────┘
+               │
+               ▼
+┌─────────────────────────────┐
+│        PostgreSQL           │
+│        Relational DB        │
+└─────────────────────────────┘
+
+🛠️ Technology Stack
+Frontend
+Next.js
+React
+TypeScript
+Tailwind CSS
+shadcn/ui
+Lucide React
+Backend / Application Layer
+Next.js App Router
+Server-side application logic
+Server Actions
+Authentication
+Database
+PostgreSQL
+Prisma ORM
+Additional Technologies
+NextAuth
+Dexie
+Recharts
+bcrypt
+ESLint
+TypeScript
+
+The current repository package configuration confirms the use of Next.js 16, React 19, Prisma, PostgreSQL (pg), NextAuth, Dexie, Recharts, Tailwind and related libraries.
+
+📂 Project Structure
+bakers-inn-pos/
+│
+├── actions/
+│   └── Application/server actions
+│
+├── app/
+│   ├── Application routes
+│   ├── Pages
+│   └── Layouts
+│
+├── components/
+│   └── Reusable UI components
+│
+├── lib/
+│   └── Utilities and application logic
+│
+├── prisma/
+│   └── Database schema and database utilities
+│
+├── public/
+│   └── Static assets
+│
+├── types/
+│   └── TypeScript types
+│
+├── middleware.ts
+├── next.config.ts
+├── prisma.config.ts
+├── package.json
+└── README.md
+
+
+🗄️ Database
+
+The application uses PostgreSQL as its relational database and Prisma as the ORM/data-access layer.
+
+The database layer is responsible for persistent business data including entities related to:
+
+Products
+Inventory
+Sales
+Branches
+Users
+Operational records
+
+Prisma provides type-safe database access and helps maintain a structured data model.
+
+🔐 Security Considerations
+
+The project is designed with several security considerations:
+
+Authentication for protected application areas
+Password hashing
+Server-side database access
+Environment-based configuration
+Sensitive credentials excluded from source control
+Type-safe application development
+
+Never commit .env, database credentials, API secrets or production authentication secrets to the repository.
+
+⚙️ Getting Started
+Prerequisites
+
+Make sure you have:
+
+Node.js
+npm
+PostgreSQL
+Git
+
+installed on your system.
+
+1. Clone the repository
+git clone https://github.com/MuhammadZain77/bakers-inn-pos.git
+cd bakers-inn-pos
+3. Install dependencies
+npm install
+3. Configure environment variables
+
+Create a .env or .env.local file according to the application's configuration.
+
+Example:
+
+DATABASE_URL="your_postgresql_connection_string"
+
+NEXTAUTH_SECRET="your_auth_secret"
+NEXTAUTH_URL="http://localhost:3000"
+
+Use the actual environment variables required by the current source code. Never publish real credentials.
+
+4. Configure the database
+
+Run the appropriate Prisma commands for your environment.
+For example:
+
+npx prisma generate
+
+Then apply your database schema/migrations according to the project's Prisma configuration.
+
+5. Start the development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+http://localhost:3000
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Available Scripts
+npm run dev
 
-## Learn More
+Starts the development server.
 
-To learn more about Next.js, take a look at the following resources:
+npm run build
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Creates a production build.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+npm run start
 
-## Deploy on Vercel
+Starts the production server.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+npm run lint
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Runs linting.
+
+🌐 Live Demo
+
+Production Application:
+
+https://bakers-inn-pos.vercel.app/
+
+📈 Future Improvements
+
+Potential future improvements include:
+
+Advanced sales analytics
+Enhanced inventory forecasting
+More detailed branch reporting
+Improved audit logging
+Advanced role-based permissions
+Automated reporting
+Additional integrations
+Improved offline resilience
+Expanded business intelligence capabilities
+
+🧠 Engineering Focus
+
+This project demonstrates practical experience in:
+
+Full-stack web development
+Next.js application architecture
+TypeScript
+PostgreSQL database design
+Prisma ORM
+Authentication
+Business application development
+Inventory management
+POS workflows
+Responsive UI development
+Production deployment
+
+👨‍💻 Author
+
+Muhammad Zain Chawala
+Data Analyst & Web Developer
+GitHub: https://github.com/MuhammadZain77
+LinkedIn: https://www.linkedin.com/in/mohammad-zain77/
+
+
+
+
